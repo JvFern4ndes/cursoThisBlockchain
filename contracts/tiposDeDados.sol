@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-contract TiposDeDadosInterativo {
+contract TiposDeDados {
     // Variáveis de estado
     bool public meuBool;             // Booleano
     int256 public meuInt;            // Inteiro com sinal
