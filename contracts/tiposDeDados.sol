@@ -4,7 +4,7 @@ pragma solidity ^0.8.0;
 contract TiposDeDados {
     // Variáveis de estado
     bool public meuBool;             // Booleano
-    int256 public meuInt;            // Inteiro com sinal
+    int256 public meuInt;           // Inteiro com sinal
     string public minhaString;       // String
     address public meuEndereco;      // Endereço
 
