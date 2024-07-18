@@ -8,4 +8,8 @@ contract freeSocial {
     function criarPost(string memory _texto) public {
         posts[msg.sender] = _texto;
     }
+
+    function visualizarPost(address _criadorDoPost) public view returns (string memory) {
+        return posts[_criadorDoPost];
+    }
 }

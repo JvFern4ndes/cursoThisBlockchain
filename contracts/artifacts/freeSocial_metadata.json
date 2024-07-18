@@ -1,0 +1,97 @@
+{
+	"compiler": {
+		"version": "0.8.26+commit.8a97fa7a"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_texto",
+						"type": "string"
+					}
+				],
+				"name": "criarPost",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "posts",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_criadorDoPost",
+						"type": "address"
+					}
+				],
+				"name": "visualizarPost",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/freeSocial.sol": "freeSocial"
+		},
+		"evmVersion": "cancun",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/freeSocial.sol": {
+			"keccak256": "0x2f15f271f7c3b3b13292756a7448a4854218a60210bc6710dfb8a63db30e27dd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d838a72ba0d57bb6902c34eccf9fa12fffd0c555ff30e2508704264a01c820e2",
+				"dweb:/ipfs/QmSMjEpnKCbt1z7tWZjNJ5fHDFctU8xhhk5DzXuMD2W3gm"
+			]
+		}
+	},
+	"version": 1
+}
