@@ -24,6 +24,11 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
 					}
 				],
 				"name": "posts",
@@ -43,6 +48,11 @@
 						"internalType": "address",
 						"name": "_criadorDoPost",
 						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_index",
+						"type": "uint256"
 					}
 				],
 				"name": "visualizarPost",
@@ -51,6 +61,25 @@
 						"internalType": "string",
 						"name": "",
 						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_criadorDoPost",
+						"type": "address"
+					}
+				],
+				"name": "visualizarTodosOsPosts",
+				"outputs": [
+					{
+						"internalType": "string[]",
+						"name": "",
+						"type": "string[]"
 					}
 				],
 				"stateMutability": "view",
@@ -85,11 +114,11 @@
 	},
 	"sources": {
 		"contracts/freeSocial.sol": {
-			"keccak256": "0x2f15f271f7c3b3b13292756a7448a4854218a60210bc6710dfb8a63db30e27dd",
+			"keccak256": "0xf66ef5938cc4262f43feb2c03932d03189808cd56422c5197b75102dc163d3e1",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://d838a72ba0d57bb6902c34eccf9fa12fffd0c555ff30e2508704264a01c820e2",
-				"dweb:/ipfs/QmSMjEpnKCbt1z7tWZjNJ5fHDFctU8xhhk5DzXuMD2W3gm"
+				"bzz-raw://02feea16b6090eea89ca4164b6f1f7fb799f6ae96bbeaddc501c07eb17ea033e",
+				"dweb:/ipfs/QmcQhXFkDucN47eT7LZLZszhXhwrZXcusv8qScaKDsE6bY"
 			]
 		}
 	},
