@@ -9,4 +9,6 @@ contract RegistroPessoas {
         string nome;
         uint idade;
     }
+
+    mapping(address => Pessoa) public pessoas;
 }
