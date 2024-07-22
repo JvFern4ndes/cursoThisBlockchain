@@ -34,9 +34,24 @@
 				"name": "posts",
 				"outputs": [
 					{
+						"internalType": "address",
+						"name": "autor",
+						"type": "address"
+					},
+					{
 						"internalType": "string",
-						"name": "",
+						"name": "conteudo",
 						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "dataHora",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "curtidas",
+						"type": "uint256"
 					}
 				],
 				"stateMutability": "view",
@@ -58,9 +73,31 @@
 				"name": "visualizarPost",
 				"outputs": [
 					{
-						"internalType": "string",
+						"components": [
+							{
+								"internalType": "address",
+								"name": "autor",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "conteudo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dataHora",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "curtidas",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct freeSocial.Post",
 						"name": "",
-						"type": "string"
+						"type": "tuple"
 					}
 				],
 				"stateMutability": "view",
@@ -77,9 +114,31 @@
 				"name": "visualizarTodosOsPosts",
 				"outputs": [
 					{
-						"internalType": "string[]",
+						"components": [
+							{
+								"internalType": "address",
+								"name": "autor",
+								"type": "address"
+							},
+							{
+								"internalType": "string",
+								"name": "conteudo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "dataHora",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "curtidas",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct freeSocial.Post[]",
 						"name": "",
-						"type": "string[]"
+						"type": "tuple[]"
 					}
 				],
 				"stateMutability": "view",
@@ -114,11 +173,11 @@
 	},
 	"sources": {
 		"contracts/freeSocial.sol": {
-			"keccak256": "0xf66ef5938cc4262f43feb2c03932d03189808cd56422c5197b75102dc163d3e1",
+			"keccak256": "0xd0b2ee1914d050ffb05073dc17d405b145e977058410ddcc71862bda3e880f1d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://02feea16b6090eea89ca4164b6f1f7fb799f6ae96bbeaddc501c07eb17ea033e",
-				"dweb:/ipfs/QmcQhXFkDucN47eT7LZLZszhXhwrZXcusv8qScaKDsE6bY"
+				"bzz-raw://0815ef3ff15c7849df0e7a702892b73d2ce71fd8d46093e15e1152f31920f839",
+				"dweb:/ipfs/QmZ6y815DrMhRE2n5yWAqQi7hjQT92C2L1VMZRrFPMPUQc"
 			]
 		}
 	},

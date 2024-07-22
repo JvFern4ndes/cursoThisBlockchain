@@ -3,17 +3,31 @@
 pragma solidity ^0.8.0;
 
 contract freeSocial {
-    mapping(address => string[]) public posts;
-
-    function criarPost(string memory _texto) public {
-        posts[msg.sender].push(_texto);
+    struct Post {
+        address autor;
+        string conteudo;
+        uint256 dataHora;
+        uint256 curtidas;
     }
 
-    function visualizarPost(address _criadorDoPost, uint _index) public view returns (string memory) {
+    mapping(address => Post[]) public posts;
+
+    function criarPost(string memory _texto) public {
+        Post memory newPost = Post({
+            autor: msg.sender,
+            conteudo: _texto,
+            dataHora: block.timestamp,
+            curtidas: 0
+        });
+
+        posts[msg.sender].push(newPost);
+    }
+
+    function visualizarPost(address _criadorDoPost, uint _index) public view returns (Post memory) {
         return posts[_criadorDoPost][_index];
     }
 
-    function visualizarTodosOsPosts(address _criadorDoPost) public view returns (string[] memory) {
+    function visualizarTodosOsPosts(address _criadorDoPost) public view returns (Post[] memory) {
         return posts[_criadorDoPost];
     }
 }
