@@ -173,11 +173,11 @@
 	},
 	"sources": {
 		"contracts/freeSocial.sol": {
-			"keccak256": "0xd0b2ee1914d050ffb05073dc17d405b145e977058410ddcc71862bda3e880f1d",
+			"keccak256": "0xeea9efa9fe37ff7d32ffc3b7d4a52b63631e2296d291edc46809ce7f6ddcaf4d",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://0815ef3ff15c7849df0e7a702892b73d2ce71fd8d46093e15e1152f31920f839",
-				"dweb:/ipfs/QmZ6y815DrMhRE2n5yWAqQi7hjQT92C2L1VMZRrFPMPUQc"
+				"bzz-raw://cc2858dce7837c12476332a14c29013d2918bea695e026c43b614d5b5c450bbd",
+				"dweb:/ipfs/QmeUvcTBp2z8argrbgDaGuNQ33wk1Amzb5yoHuJAodywp4"
 			]
 		}
 	},
