@@ -6,6 +6,7 @@ contract freeSocial {
     uint16 public MAXIMO_DE_CARACTERES = 280;
 
     struct Post {
+        uint256 id;
         address autor;
         string conteudo;
         uint256 dataHora;
@@ -29,6 +30,7 @@ contract freeSocial {
         require(bytes(_texto).length <= MAXIMO_DE_CARACTERES, "Quantidade maxima de caracteres foi ultrapassada!");
 
         Post memory newPost = Post({
+            id: posts[msg.sender].length,
             autor: msg.sender,
             conteudo: _texto,
             dataHora: block.timestamp,
@@ -36,6 +38,19 @@ contract freeSocial {
         });
 
         posts[msg.sender].push(newPost);
+    }
+
+    function curtirPost(address autor, uint256 id) external {
+        require(posts[autor][id].id == id, "Este post nao existe.");
+
+        posts[autor][id].curtidas++;
+    }
+
+    function descurtirPost(address autor, uint256 id) external {
+        require(posts[autor][id].id == id, "Este post nao existe.");
+        require(posts[autor][id].curtidas > 0, "O post nao possui curtidas.");
+        
+        posts[autor][id].curtidas--;
     }
 
     function alterarMaximoDeCaracteres(uint16 _novoMaximoDeCaracteres) public apenasDonoDoContrato {

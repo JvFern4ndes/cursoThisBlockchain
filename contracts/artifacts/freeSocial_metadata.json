@@ -50,6 +50,42 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "autor",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "curtirPost",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "autor",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					}
+				],
+				"name": "descurtirPost",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "donoDoContrato",
 				"outputs": [
@@ -77,6 +113,11 @@
 				],
 				"name": "posts",
 				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
 					{
 						"internalType": "address",
 						"name": "autor",
@@ -119,6 +160,11 @@
 					{
 						"components": [
 							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
 								"internalType": "address",
 								"name": "autor",
 								"type": "address"
@@ -159,6 +205,11 @@
 				"outputs": [
 					{
 						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
 							{
 								"internalType": "address",
 								"name": "autor",
@@ -217,11 +268,11 @@
 	},
 	"sources": {
 		"contracts/freeSocial.sol": {
-			"keccak256": "0x968210555060b6ab9ff47bf1d87fe0ea3b483fc8f6dd7b1ff00b455501de0d0c",
+			"keccak256": "0xf1ac8c88e5961ae331086771e70bbd13edb08b6a8c0e9f29448109805d1f7bf6",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://c1165be6174c6cdea9ed6090f259ffa61d2cb107296cff2b531caf26e06fa4fe",
-				"dweb:/ipfs/QmdCPSBxTHR7BeSggXJqwtGus66bjUGKc1PTS2tVEoePAG"
+				"bzz-raw://f825cf9e99df5214732fb37db9ece58eaf12f3c69812a583f599fc89e4e9473c",
+				"dweb:/ipfs/QmY8kGzLxPRV3vzcM5f6WFhqwxQdN6kkW63yXofWZPSZSR"
 			]
 		}
 	},
