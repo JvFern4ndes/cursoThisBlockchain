@@ -3,7 +3,7 @@
 pragma solidity ^0.8.0;
 
 contract freeSocial {
-    uint16 constant MAXIMO_DE_CARACTERES = 280;
+    uint16 public MAXIMO_DE_CARACTERES = 280;
 
     struct Post {
         address autor;
@@ -13,6 +13,17 @@ contract freeSocial {
     }
 
     mapping(address => Post[]) public posts;
+
+    address public donoDoContrato;
+
+    constructor() {
+        donoDoContrato = msg.sender;
+    }
+
+    modifier apenasDonoDoContrato {
+        require(msg.sender == donoDoContrato, "Apenas o dono do contrato pode executar essa funcao!");
+        _;
+    }
 
     function criarPost(string memory _texto) public {
         require(bytes(_texto).length <= MAXIMO_DE_CARACTERES, "Quantidade maxima de caracteres foi ultrapassada!");
@@ -25,6 +36,10 @@ contract freeSocial {
         });
 
         posts[msg.sender].push(newPost);
+    }
+
+    function alterarMaximoDeCaracteres(uint16 _novoMaximoDeCaracteres) public apenasDonoDoContrato {
+        MAXIMO_DE_CARACTERES = _novoMaximoDeCaracteres;
     }
 
     function visualizarPost(address _criadorDoPost, uint _index) public view returns (Post memory) {

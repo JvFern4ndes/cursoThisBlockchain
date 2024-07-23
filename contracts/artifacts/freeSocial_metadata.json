@@ -6,6 +6,37 @@
 	"output": {
 		"abi": [
 			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "MAXIMO_DE_CARACTERES",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "_novoMaximoDeCaracteres",
+						"type": "uint16"
+					}
+				],
+				"name": "alterarMaximoDeCaracteres",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [
 					{
 						"internalType": "string",
@@ -16,6 +47,19 @@
 				"name": "criarPost",
 				"outputs": [],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "donoDoContrato",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -173,11 +217,11 @@
 	},
 	"sources": {
 		"contracts/freeSocial.sol": {
-			"keccak256": "0xeea9efa9fe37ff7d32ffc3b7d4a52b63631e2296d291edc46809ce7f6ddcaf4d",
+			"keccak256": "0x968210555060b6ab9ff47bf1d87fe0ea3b483fc8f6dd7b1ff00b455501de0d0c",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cc2858dce7837c12476332a14c29013d2918bea695e026c43b614d5b5c450bbd",
-				"dweb:/ipfs/QmeUvcTBp2z8argrbgDaGuNQ33wk1Amzb5yoHuJAodywp4"
+				"bzz-raw://c1165be6174c6cdea9ed6090f259ffa61d2cb107296cff2b531caf26e06fa4fe",
+				"dweb:/ipfs/QmdCPSBxTHR7BeSggXJqwtGus66bjUGKc1PTS2tVEoePAG"
 			]
 		}
 	},
