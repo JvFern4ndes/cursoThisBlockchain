@@ -2,13 +2,17 @@
 
 pragma solidity ^0.8.0;
 
-contract SimpleEventExample {
-    // Declaração do evento
-    event NewTransaction(address indexed from, address indexed to, uint256 amount);
+contract Events {
+    // Definindo um evento
+    event ValorAlterado(address indexed autor, uint256 valorAntigo, uint256 valorNovo);
 
-    // Função para emitir o evento
-    function sendTransaction(address to, uint256 amount) public {
-        // Emitindo o evento
-        emit NewTransaction(msg.sender, to, amount);
+    uint256 public valor;
+
+    function definirValor(uint256 valorNovo) public {
+        uint256 valorAntigo = valor;
+        valor = valorNovo;
+        
+        // Emitindo um evento
+        emit ValorAlterado(msg.sender, valorAntigo, valorNovo);
     }
 }
