@@ -11,6 +11,99 @@
 				"type": "constructor"
 			},
 			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "quemCurtiu",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "autor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "novaContagemDeCurtidas",
+						"type": "uint256"
+					}
+				],
+				"name": "postCurtido",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "quemDescurtiu",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "autor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "novaContagemDeCurtidas",
+						"type": "uint256"
+					}
+				],
+				"name": "postDescurtido",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "autor",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "conteudo",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "dataHora",
+						"type": "uint256"
+					}
+				],
+				"name": "postPublicado",
+				"type": "event"
+			},
+			{
 				"inputs": [],
 				"name": "MAXIMO_DE_CARACTERES",
 				"outputs": [
@@ -268,11 +361,11 @@
 	},
 	"sources": {
 		"contracts/freeSocial.sol": {
-			"keccak256": "0xf1ac8c88e5961ae331086771e70bbd13edb08b6a8c0e9f29448109805d1f7bf6",
+			"keccak256": "0x7b0eff01f1c7d9c3f492cd1e0ce38c0b1a6a0d1df2501416e15e52c700424766",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://f825cf9e99df5214732fb37db9ece58eaf12f3c69812a583f599fc89e4e9473c",
-				"dweb:/ipfs/QmY8kGzLxPRV3vzcM5f6WFhqwxQdN6kkW63yXofWZPSZSR"
+				"bzz-raw://f96ab60026f64250cfec705b4bb501b4c41b2ae8edd3f61136bbd420b91d3642",
+				"dweb:/ipfs/QmR4dZEVA1pdHddu4GnHN59WoiAPEGKaWKH8KCCHRaGk3M"
 			]
 		}
 	},

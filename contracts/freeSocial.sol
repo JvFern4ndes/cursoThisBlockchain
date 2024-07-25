@@ -17,6 +17,10 @@ contract freeSocial {
 
     address public donoDoContrato;
 
+    event postPublicado(uint256 id, address autor, string conteudo, uint dataHora);
+    event postCurtido(address quemCurtiu, address autor, uint256 id, uint256 novaContagemDeCurtidas);
+    event postDescurtido(address quemDescurtiu, address autor, uint256 id, uint256 novaContagemDeCurtidas);
+
     constructor() {
         donoDoContrato = msg.sender;
     }
@@ -38,12 +42,16 @@ contract freeSocial {
         });
 
         posts[msg.sender].push(newPost);
+
+        emit postPublicado(newPost.id, newPost.autor, newPost.conteudo, newPost.dataHora);
     }
 
     function curtirPost(address autor, uint256 id) external {
         require(posts[autor][id].id == id, "Este post nao existe.");
 
         posts[autor][id].curtidas++;
+
+        emit postCurtido(msg.sender, autor, id, posts[autor][id].curtidas);
     }
 
     function descurtirPost(address autor, uint256 id) external {
@@ -51,6 +59,8 @@ contract freeSocial {
         require(posts[autor][id].curtidas > 0, "O post nao possui curtidas.");
         
         posts[autor][id].curtidas--;
+
+        emit postDescurtido(msg.sender, autor, id, posts[autor][id].curtidas);
     }
 
     function alterarMaximoDeCaracteres(uint16 _novoMaximoDeCaracteres) public apenasDonoDoContrato {
