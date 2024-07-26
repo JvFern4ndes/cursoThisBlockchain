@@ -121,34 +121,48 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 module.exports = [{
   "inputs": [{
     "internalType": "uint16",
-    "name": "newTweetLength",
+    "name": "_novoMaximoDeCaracteres",
     "type": "uint16"
   }],
-  "name": "changeTweetLength",
+  "name": "alterarMaximoDeCaracteres",
   "outputs": [],
   "stateMutability": "nonpayable",
   "type": "function"
 }, {
   "inputs": [{
     "internalType": "string",
-    "name": "_tweet",
+    "name": "_texto",
     "type": "string"
   }],
-  "name": "createTweet",
+  "name": "criarPost",
   "outputs": [],
   "stateMutability": "nonpayable",
   "type": "function"
 }, {
   "inputs": [{
     "internalType": "address",
-    "name": "author",
+    "name": "autor",
     "type": "address"
   }, {
     "internalType": "uint256",
     "name": "id",
     "type": "uint256"
   }],
-  "name": "likeTweet",
+  "name": "curtirPost",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "autor",
+    "type": "address"
+  }, {
+    "internalType": "uint256",
+    "name": "id",
+    "type": "uint256"
+  }],
+  "name": "descurtirPost",
   "outputs": [],
   "stateMutability": "nonpayable",
   "type": "function"
@@ -157,92 +171,93 @@ module.exports = [{
   "stateMutability": "nonpayable",
   "type": "constructor"
 }, {
+  "anonymous": false,
   "inputs": [{
+    "indexed": false,
     "internalType": "address",
-    "name": "author",
+    "name": "quemCurtiu",
     "type": "address"
   }, {
+    "indexed": false,
+    "internalType": "address",
+    "name": "autor",
+    "type": "address"
+  }, {
+    "indexed": false,
     "internalType": "uint256",
     "name": "id",
     "type": "uint256"
-  }],
-  "name": "unlikeTweet",
-  "outputs": [],
-  "stateMutability": "nonpayable",
-  "type": "function"
-}, {
-  "inputs": [{
-    "internalType": "address",
-    "name": "_owner",
-    "type": "address"
-  }],
-  "name": "getAllTweets",
-  "outputs": [{
-    "components": [{
-      "internalType": "uint256",
-      "name": "id",
-      "type": "uint256"
-    }, {
-      "internalType": "address",
-      "name": "author",
-      "type": "address"
-    }, {
-      "internalType": "string",
-      "name": "content",
-      "type": "string"
-    }, {
-      "internalType": "uint256",
-      "name": "timestamp",
-      "type": "uint256"
-    }, {
-      "internalType": "uint256",
-      "name": "likes",
-      "type": "uint256"
-    }],
-    "internalType": "struct Twitter.Tweet[]",
-    "name": "",
-    "type": "tuple[]"
-  }],
-  "stateMutability": "view",
-  "type": "function"
-}, {
-  "inputs": [{
+  }, {
+    "indexed": false,
     "internalType": "uint256",
-    "name": "_i",
+    "name": "novaContagemDeCurtidas",
     "type": "uint256"
   }],
-  "name": "getTweet",
+  "name": "postCurtido",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "address",
+    "name": "quemDescurtiu",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "address",
+    "name": "autor",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "id",
+    "type": "uint256"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "novaContagemDeCurtidas",
+    "type": "uint256"
+  }],
+  "name": "postDescurtido",
+  "type": "event"
+}, {
+  "anonymous": false,
+  "inputs": [{
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "id",
+    "type": "uint256"
+  }, {
+    "indexed": false,
+    "internalType": "address",
+    "name": "autor",
+    "type": "address"
+  }, {
+    "indexed": false,
+    "internalType": "string",
+    "name": "conteudo",
+    "type": "string"
+  }, {
+    "indexed": false,
+    "internalType": "uint256",
+    "name": "dataHora",
+    "type": "uint256"
+  }],
+  "name": "postPublicado",
+  "type": "event"
+}, {
+  "inputs": [],
+  "name": "donoDoContrato",
   "outputs": [{
-    "components": [{
-      "internalType": "uint256",
-      "name": "id",
-      "type": "uint256"
-    }, {
-      "internalType": "address",
-      "name": "author",
-      "type": "address"
-    }, {
-      "internalType": "string",
-      "name": "content",
-      "type": "string"
-    }, {
-      "internalType": "uint256",
-      "name": "timestamp",
-      "type": "uint256"
-    }, {
-      "internalType": "uint256",
-      "name": "likes",
-      "type": "uint256"
-    }],
-    "internalType": "struct Twitter.Tweet",
+    "internalType": "address",
     "name": "",
-    "type": "tuple"
+    "type": "address"
   }],
   "stateMutability": "view",
   "type": "function"
 }, {
   "inputs": [],
-  "name": "MAX_TWEET_LENGTH",
+  "name": "MAXIMO_DE_CARACTERES",
   "outputs": [{
     "internalType": "uint16",
     "name": "",
@@ -251,16 +266,6 @@ module.exports = [{
   "stateMutability": "view",
   "type": "function"
 }, {
-  "inputs": [],
-  "name": "owner",
-  "outputs": [{
-    "internalType": "address",
-    "name": "",
-    "type": "address"
-  }],
-  "stateMutability": "view",
-  "type": "function"
-}, {
   "inputs": [{
     "internalType": "address",
     "name": "",
@@ -270,27 +275,101 @@ module.exports = [{
     "name": "",
     "type": "uint256"
   }],
-  "name": "tweets",
+  "name": "posts",
   "outputs": [{
     "internalType": "uint256",
     "name": "id",
     "type": "uint256"
   }, {
     "internalType": "address",
-    "name": "author",
+    "name": "autor",
     "type": "address"
   }, {
     "internalType": "string",
-    "name": "content",
+    "name": "conteudo",
     "type": "string"
   }, {
     "internalType": "uint256",
-    "name": "timestamp",
+    "name": "dataHora",
     "type": "uint256"
   }, {
     "internalType": "uint256",
-    "name": "likes",
+    "name": "curtidas",
     "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "_criadorDoPost",
+    "type": "address"
+  }, {
+    "internalType": "uint256",
+    "name": "_index",
+    "type": "uint256"
+  }],
+  "name": "visualizarPost",
+  "outputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "address",
+      "name": "autor",
+      "type": "address"
+    }, {
+      "internalType": "string",
+      "name": "conteudo",
+      "type": "string"
+    }, {
+      "internalType": "uint256",
+      "name": "dataHora",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "curtidas",
+      "type": "uint256"
+    }],
+    "internalType": "struct freeSocial.Post",
+    "name": "",
+    "type": "tuple"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "_criadorDoPost",
+    "type": "address"
+  }],
+  "name": "visualizarTodosOsPosts",
+  "outputs": [{
+    "components": [{
+      "internalType": "uint256",
+      "name": "id",
+      "type": "uint256"
+    }, {
+      "internalType": "address",
+      "name": "autor",
+      "type": "address"
+    }, {
+      "internalType": "string",
+      "name": "conteudo",
+      "type": "string"
+    }, {
+      "internalType": "uint256",
+      "name": "dataHora",
+      "type": "uint256"
+    }, {
+      "internalType": "uint256",
+      "name": "curtidas",
+      "type": "uint256"
+    }],
+    "internalType": "struct freeSocial.Post[]",
+    "name": "",
+    "type": "tuple[]"
   }],
   "stateMutability": "view",
   "type": "function"
@@ -355,7 +434,7 @@ function createTweet(_x) {
   return _createTweet.apply(this, arguments);
 }
 function _createTweet() {
-  _createTweet = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(content) {
+  _createTweet = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee4(_texto) {
     var accounts;
     return _regeneratorRuntime().wrap(function _callee4$(_context4) {
       while (1) switch (_context4.prev = _context4.next) {
@@ -364,22 +443,23 @@ function _createTweet() {
           return web3.eth.getAccounts();
         case 2:
           accounts = _context4.sent;
-          try {
-            // 4️⃣ call the contract createTweet method in order to crete the actual TWEET
-            // HINT: https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#methods-mymethod-send
-            // use the "await" feature to wait for the function to finish execution
-            // what is await? https://javascript.info/async-await
-            // 7️⃣ Uncomment the displayTweets function! PRETTY EASY 🔥
-            // GOAL: reload tweets after creating a new tweet
-            // displayTweets(accounts[0]);
-          } catch (error) {
-            console.error("User rejected request:", error);
-          }
-        case 4:
+          _context4.prev = 3;
+          _context4.next = 6;
+          return contract.methods.criarPost(_texto).send({
+            from: accounts[0]
+          });
+        case 6:
+          _context4.next = 11;
+          break;
+        case 8:
+          _context4.prev = 8;
+          _context4.t0 = _context4["catch"](3);
+          console.error("User rejected request:", _context4.t0);
+        case 11:
         case "end":
           return _context4.stop();
       }
-    }, _callee4);
+    }, _callee4, null, [[3, 8]]);
   }));
   return _createTweet.apply(this, arguments);
 }

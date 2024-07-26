@@ -34,13 +34,16 @@ async function connectWallet() {
   }
 }
 
-async function createTweet(content) {
+async function createTweet(_texto) {
   const accounts = await web3.eth.getAccounts();
   try {
     // 4️⃣ call the contract createTweet method in order to crete the actual TWEET
     // HINT: https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#methods-mymethod-send
     // use the "await" feature to wait for the function to finish execution
     // what is await? https://javascript.info/async-await
+
+    await contract.methods.criarPost(_texto).send({ from: accounts[0] });
+
     // 7️⃣ Uncomment the displayTweets function! PRETTY EASY 🔥
     // GOAL: reload tweets after creating a new tweet
     // displayTweets(accounts[0]);
