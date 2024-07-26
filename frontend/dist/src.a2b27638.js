@@ -305,30 +305,45 @@ function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyri
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
 // 2️⃣ Set your smart contract address 👇
-var contractAddress = "";
+var contractAddress = "0xE3360318b93fED8FD2F45d7ffe5917F70691642A";
 var web3 = new Web3(window.ethereum);
 // 3️⃣ connect to the contract using web3
 // HINT: https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#new-contract
-// let contract = YOUR CODE
+var contract = new web3.eth.Contract(_abi.default, contractAddress);
 function connectWallet() {
   return _connectWallet.apply(this, arguments);
 }
 function _connectWallet() {
   _connectWallet = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3() {
+    var accounts;
     return _regeneratorRuntime().wrap(function _callee3$(_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
-          if (window.ethereum) {
-            // 1️⃣ Request Wallet Connection from Metamask
-            // ANSWER can be found here: https://docs.metamask.io/wallet/get-started/set-up-dev-environment/
-            // const accounts = YOUR CODE
-
-            setConnected(accounts[0]);
-          } else {
-            console.error("No web3 provider detected");
-            document.getElementById("connectMessage").innerText = "No web3 provider detected. Please install MetaMask.";
+          if (!window.ethereum) {
+            _context3.next = 7;
+            break;
           }
-        case 1:
+          _context3.next = 3;
+          return window.ethereum.request({
+            method: "eth_requestAccounts"
+          }).catch(function (err) {
+            if (err.code === 4001) {
+              // EIP-1193 userRejectedRequest error.
+              // If this happens, the user rejected the connection request.
+              console.log("Please connect to MetaMask.");
+            } else {
+              console.error(err);
+            }
+          });
+        case 3:
+          accounts = _context3.sent;
+          setConnected(accounts[0]);
+          _context3.next = 9;
+          break;
+        case 7:
+          console.error("No web3 provider detected");
+          document.getElementById("connectMessage").innerText = "No web3 provider detected. Please install MetaMask.";
+        case 9:
         case "end":
           return _context3.stop();
       }
@@ -550,7 +565,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65118" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49505" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
