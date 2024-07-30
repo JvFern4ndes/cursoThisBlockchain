@@ -52,24 +52,26 @@ async function createTweet(_texto) {
   }
 }
 
-async function displayTweets(userAddress) {
+async function displayTweets(_criadorDoPost) {
   const tweetsContainer = document.getElementById("tweetsContainer");
-  const tempTweets = [];
+  let tempPosts = [];
   tweetsContainer.innerHTML = "";
   // 5️⃣ call the function getAllTweets from smart contract to get all the tweets
   // HINT: https://web3js.readthedocs.io/en/v1.2.11/web3-eth-contract.html#methods-mymethod-call
-  // tempTweets = await YOUR CODE
+  // tempPosts = await YOUR CODE
+
+  tempPosts = await contract.methods.visualizarTodosOsPosts(_criadorDoPost).call();
 
   // we do this so we can sort the tweets  by timestamp
-  const tweets = [...tempTweets];
-  tweets.sort((a, b) => b.timestamp - a.timestamp);
-  for (let i = 0; i < tweets.length; i++) {
+  const posts = [...tempPosts];
+  posts.sort((a, b) => b.timestamp - a.timestamp);
+  for (let i = 0; i < posts.length; i++) {
     const tweetElement = document.createElement("div");
     tweetElement.className = "tweet";
 
     const userIcon = document.createElement("img");
     userIcon.className = "user-icon";
-    userIcon.src = `https://avatars.dicebear.com/api/human/${tweets[i].author}.svg`;
+    userIcon.src = `https://avatars.dicebear.com/api/human/${posts[i].autor}.svg`;
     userIcon.alt = "User Icon";
 
     tweetElement.appendChild(userIcon);
@@ -78,24 +80,24 @@ async function displayTweets(userAddress) {
     tweetInner.className = "tweet-inner";
 
     tweetInner.innerHTML += `
-        <div class="author">${shortAddress(tweets[i].author)}</div>
-        <div class="content">${tweets[i].content}</div>
+        <div class="author">${shortAddress(posts[i].autor)}</div>
+        <div class="content">${posts[i].conteudo}</div>
     `;
 
     const likeButton = document.createElement("button");
     likeButton.className = "like-button";
     likeButton.innerHTML = `
         <i class="far fa-heart"></i>
-        <span class="likes-count">${tweets[i].likes}</span>
+        <span class="likes-count">${posts[i].curtidas}</span>
     `;
-    likeButton.setAttribute("data-id", tweets[i].id);
-    likeButton.setAttribute("data-author", tweets[i].author);
+    likeButton.setAttribute("data-id", posts[i].id);
+    likeButton.setAttribute("data-author", posts[i].autor);
 
     addLikeButtonListener(
       likeButton,
       userAddress,
-      tweets[i].id,
-      tweets[i].author
+      posts[i].id,
+      posts[i].autor
     );
     tweetInner.appendChild(likeButton);
     tweetElement.appendChild(tweetInner);
@@ -143,6 +145,7 @@ function setConnected(address) {
   // 6️⃣ Call the displayTweets function with address as input
   // This is the function in the javascript code, not smart contract 😉
   // GOAL: display all tweets after connecting to metamask
+  displayTweets(address)
 }
 
 document
