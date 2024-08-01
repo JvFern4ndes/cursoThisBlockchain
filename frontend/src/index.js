@@ -46,7 +46,7 @@ async function createTweet(_texto) {
 
     // 7️⃣ Uncomment the displayTweets function! PRETTY EASY 🔥
     // GOAL: reload tweets after creating a new tweet
-    // displayTweets(accounts[0]);
+    displayTweets(accounts[0]);
   } catch (error) {
     console.error("User rejected request:", error);
   }

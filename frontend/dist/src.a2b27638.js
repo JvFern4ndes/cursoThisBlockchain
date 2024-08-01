@@ -455,17 +455,20 @@ function _createTweet() {
             from: accounts[0]
           });
         case 6:
-          _context4.next = 11;
+          // 7️⃣ Uncomment the displayTweets function! PRETTY EASY 🔥
+          // GOAL: reload tweets after creating a new tweet
+          displayTweets(accounts[0]);
+          _context4.next = 12;
           break;
-        case 8:
-          _context4.prev = 8;
+        case 9:
+          _context4.prev = 9;
           _context4.t0 = _context4["catch"](3);
           console.error("User rejected request:", _context4.t0);
-        case 11:
+        case 12:
         case "end":
           return _context4.stop();
       }
-    }, _callee4, null, [[3, 8]]);
+    }, _callee4, null, [[3, 9]]);
   }));
   return _createTweet.apply(this, arguments);
 }
@@ -655,7 +658,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59548" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61528" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
